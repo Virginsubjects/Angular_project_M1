@@ -3,16 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+import { DeezerService } from './services/deezer.service';
+import {HttpClientModule} from "@angular/common/http";
+import { ArtistComponent } from './home/artist/artist.component'
+import { VariablesGlobales } from './globales';
+import { AlbumComponent } from './home/album/album.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    ArtistComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [DeezerService, VariablesGlobales],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

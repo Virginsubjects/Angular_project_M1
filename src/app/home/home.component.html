@@ -1,0 +1,68 @@
+
+<div *ngIf = "enabled">
+<section class="p-4">
+    <div class="container">
+        <div class="row">
+            <h3 class="display-3">
+                Doozer Music Search
+            </h3>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, numquam id ratione aut similique dolorum. Hic, temporibus! Reprehenderit, nostrum suscipit.</p>
+        </div>
+    </div>
+</section>
+
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="cold-md-4">
+                <form action="">
+                    <div class="form-group">
+                        <input [(ngModel)]="searchQuery" (keyup)="searchArtist()"type="search" class="form-control" placeholder="Search an Artist" name ="search ">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="p-3">
+    <div class="container">
+        <div class="row" *ngFor="let artist of artists, let index = index">
+            <div class="col" >
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2>{{artist.title}}</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row"> 
+                            <div class="cold-md-3">
+                                <img src={{artist.album.cover}} class="img-fluid img-thumbnail">
+                            </div>
+                            <div class="cold-md-9">
+                                <h4 class="display-3 text-primary"></h4>
+                                <p class="h5">Artiste : 
+                                    <a  class="badge badge-succes mr-2" routerLink="artist" routerLinkActive="active" (click)="onClick(index)">{{artist.artist.name}}</a>
+                
+                                    
+                                </p>
+                                
+                                <p class="h5">Album : 
+                                    
+                                    <span class="badge badge-succes mr-2">{{artist.album.title}}</span>
+                                    
+                                </p>
+                                <p class="h5">Rank : 
+                                    <span class="badge badge-succes mr-2">{{artist.rank}}</span>
+                                </p>
+                                
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<router-outlet></router-outlet>
