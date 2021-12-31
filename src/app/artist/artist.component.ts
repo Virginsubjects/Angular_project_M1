@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { VariablesGlobales } from 'src/app/globales';
 import { DeezerService } from 'src/app/services/deezer.service';
 
 @Component({
@@ -10,15 +9,11 @@ import { DeezerService } from 'src/app/services/deezer.service';
 })
 export class ArtistComponent implements OnInit {
 
-  
-  idArtist = -1;
-  artistImgSrc ="";
   albums : any = [];
-  name = "";
   artist : any ;
   artistId : any;
 
-  constructor( private activatedRoute : ActivatedRoute, private deezerService : DeezerService, private variablesGlobales : VariablesGlobales) { 
+  constructor( private activatedRoute : ActivatedRoute, private deezerService : DeezerService) { 
     this.ngOnInit();
   }
 
@@ -27,24 +22,18 @@ export class ArtistComponent implements OnInit {
       this.artistId = paramMap.get('id');
     })
     this.albums = this.getAllAlbums();
-    this.artist = this.getArtistInfos();
-    this.name = this.variablesGlobales.artistName;
-    
+    this.artist = this.getArtistInfos();  
   }
 
   getArtistInfos(){
-    this.deezerService.getArtist(this.variablesGlobales.currentArtist).subscribe((data)=>{
+    this.deezerService.getArtist(this.artistId).subscribe((data)=>{
       this.artist = data;
-      console.log(this.artist.name);
-      })
+         })
   }
 
   getAllAlbums(){
-    this.deezerService.getAllAlbumsfromArtist(this.variablesGlobales.currentArtist).subscribe((data)=>{
+    this.deezerService.getAllAlbumsfromArtist(this.artistId).subscribe((data)=>{
     this.albums=data.data;
-    this.idArtist = this.variablesGlobales.currentArtist;
-    this.artistImgSrc= this.variablesGlobales.currentArtistImg;
-    console.log(this.albums);
     })
   }
 }

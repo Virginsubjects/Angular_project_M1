@@ -9,9 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { DeezerService } from './services/deezer.service';
 import {HttpClientModule} from "@angular/common/http";
-import { VariablesGlobales } from './globales';
 import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
+import { ArtistService } from './services/artist.service';
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { AlbumComponent } from './album/album.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [DeezerService, VariablesGlobales],
+  providers: [DeezerService, ArtistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

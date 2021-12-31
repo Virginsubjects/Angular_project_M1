@@ -34,5 +34,15 @@ export class DeezerService {
     let artistUrl = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/'+artistId;
     return this.httpClient.get<any>(artistUrl, this.httpOptions);
   }
+
+  getAlbum(albumId : number): Observable<any>{
+    let albumUrl = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/'+albumId;
+    return this.httpClient.get<any>(albumUrl, this.httpOptions);
+  }
+
+  getAllTracks(albumId: number) : Observable<any>{
+    let tracksUrl = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/'+albumId+'/tracks';
+    return this.httpClient.get<any>(tracksUrl, this.httpOptions);
+  }
   
 }

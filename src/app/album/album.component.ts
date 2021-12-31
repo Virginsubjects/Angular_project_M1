@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { VariablesGlobales } from '../globales';
+import { DeezerService } from '../services/deezer.service';
 
 @Component({
   selector: 'app-album',
@@ -10,16 +10,20 @@ import { VariablesGlobales } from '../globales';
 export class AlbumComponent implements OnInit {
 
   public albumId : any;
+  public album :any;
 
-  constructor(private activatedRoute : ActivatedRoute,private globals : VariablesGlobales) { 
-    this.globals.enabled = false;
-  }
+  constructor(private activatedRoute : ActivatedRoute, private deezerService : DeezerService) { }
 
   ngOnInit(): void {
-    
+    //get albumId from the browser URL
     this.activatedRoute.paramMap.subscribe((paramMap:ParamMap)=>{
       this.albumId = paramMap.get('id');
     });
+
+    //get an album from the service
+    this.deezerService.getAlbum(this.albumId).subscribe((data)=>{
+      this.album = data;
+    })
   }
 
 
