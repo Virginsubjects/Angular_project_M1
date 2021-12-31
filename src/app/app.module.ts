@@ -9,9 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { DeezerService } from './services/deezer.service';
 import {HttpClientModule} from "@angular/common/http";
-import { ArtistComponent } from './home/artist/artist.component'
 import { VariablesGlobales } from './globales';
-import { AlbumComponent } from './home/album/album.component';
+import { ArtistComponent } from './artist/artist.component';
+import { AlbumComponent } from './album/album.component';
+
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { AlbumComponent } from './home/album/album.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ArtistComponent,
-    AlbumComponent
+   ArtistComponent,
+   AlbumComponent
+
   ],
   imports: [
     BrowserModule,

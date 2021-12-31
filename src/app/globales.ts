@@ -5,4 +5,5 @@ export class VariablesGlobales {
   currentArtist = -1;
   currentArtistImg = "";
   artistName = "";
+  enabled = true;
 }

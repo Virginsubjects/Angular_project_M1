@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlbumComponent } from './home/album/album.component';
-import { ArtistComponent } from './home/artist/artist.component';
+import { AlbumComponent } from './album/album.component';
+import { ArtistComponent } from './artist/artist.component';
+
 
 const routes: Routes = [ 
     { path: 'artist', component: ArtistComponent },

@@ -1,6 +1,6 @@
-import { ConstantPool } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { VariablesGlobales } from '../globales';
 
 import { DeezerService } from '../services/deezer.service';
@@ -14,18 +14,22 @@ export class HomeComponent implements OnInit {
 
   public searchQuery:string="";
   public artists :any= [];  
-  public enabled = true; 
+  public enabled = this.variablesGlobales.enabled; 
 
   constructor(private deezerService : DeezerService, private router: Router,
               private variablesGlobales : VariablesGlobales) {
-    router.events.subscribe(
-      (event) => {
-        if ( event instanceof NavigationStart ) {
-         this.enabled  = true;     
-        }});
+    
+   
+        
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe(
+      (event: any) => { 
+         if ( event instanceof NavigationStart ) {
+          this.variablesGlobales.enabled  = true;     
+         }
+       });
   }
 
   searchArtist(){
@@ -40,9 +44,7 @@ export class HomeComponent implements OnInit {
       this.variablesGlobales.currentArtist = this.artists[index].artist.id;
       this.variablesGlobales.currentArtistImg = this.artists[index].artist.picture ;
       this.variablesGlobales.artistName = this.artists[index].artist.name;
-      this.enabled = false;
+      this.enabled = this.variablesGlobales.enabled = false;
+      
   }
-
-  
-
 }

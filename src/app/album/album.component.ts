@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { VariablesGlobales } from '../globales';
 
 @Component({
   selector: 'app-album',
@@ -10,12 +11,16 @@ export class AlbumComponent implements OnInit {
 
   public albumId : any;
 
-  constructor(private activatedRoute : ActivatedRoute) { }
+  constructor(private activatedRoute : ActivatedRoute,private globals : VariablesGlobales) { 
+    this.globals.enabled = false;
+  }
 
   ngOnInit(): void {
+    
     this.activatedRoute.paramMap.subscribe((paramMap:ParamMap)=>{
       this.albumId = paramMap.get('id');
     });
   }
+
 
 }

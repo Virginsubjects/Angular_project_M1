@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { VariablesGlobales } from 'src/app/globales';
 import { DeezerService } from 'src/app/services/deezer.service';
 
@@ -15,12 +16,16 @@ export class ArtistComponent implements OnInit {
   albums : any = [];
   name = "";
   artist : any ;
+  artistId : any;
 
-  constructor(private deezerService : DeezerService, private variablesGlobales : VariablesGlobales) { 
+  constructor( private activatedRoute : ActivatedRoute, private deezerService : DeezerService, private variablesGlobales : VariablesGlobales) { 
     this.ngOnInit();
   }
 
-  ngOnInit(): void {  
+  ngOnInit(): void { 
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap)=>{
+      this.artistId = paramMap.get('id');
+    })
     this.albums = this.getAllAlbums();
     this.artist = this.getArtistInfos();
     this.name = this.variablesGlobales.artistName;
