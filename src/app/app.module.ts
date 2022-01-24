@@ -12,6 +12,10 @@ import {HttpClientModule} from "@angular/common/http";
 import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
 import { ArtistService } from './services/artist.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 
 @NgModule({
@@ -21,14 +25,16 @@ import { ArtistService } from './services/artist.service';
     FooterComponent,
     HomeComponent,
    ArtistComponent,
-   AlbumComponent
-
+   AlbumComponent,
+   NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [DeezerService, ArtistService],
   bootstrap: [AppComponent]

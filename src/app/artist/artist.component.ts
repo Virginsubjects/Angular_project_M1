@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { DeezerService } from 'src/app/services/deezer.service';
+import { ArtistService } from '../services/artist.service';
 
 @Component({
   selector: 'app-artist',
@@ -13,7 +14,8 @@ export class ArtistComponent implements OnInit {
   artist : any ;
   artistId : any;
 
-  constructor( private activatedRoute : ActivatedRoute, private deezerService : DeezerService) { 
+  constructor( private activatedRoute : ActivatedRoute, private deezerService : DeezerService,
+                artistService : ArtistService) { 
     this.ngOnInit();
   }
 

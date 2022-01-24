@@ -1,28 +1,27 @@
 <section class="p-3">
-    <div class="container-fluid">
+    <div class="container-fluid deg">
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header deg text-white">
                         <div class="row align-items-center">
-                            <div class="col-md-2">
-                                <img src="{{album.cover}}" alt="" class="src">
+                            <div class="col-md-2 mr-2">
+                                <img src="{{album.cover_medium}}" alt="" class="src img">
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-4 ml-5">
                                 <h5 class="display-4">{{album.title}}</h5>
                                 <p class="display-5">Release Date: {{album.release_date | date}}</p>
                                 <p class="display-5">Number of tracks: {{album.nb_tracks}}</p>
-                                <button class="btn btn-outline-white btn-sm">back</button>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body deg">
                         <div class="row">
                             <div class="col-md-4" *ngFor="let track of album.tracks.data">
                                 <div class="card">
-                                    <div class="card-body bg-secondary text-white text-center">
+                                    <div class="card-body deg text-white text-center">
                                         <p class="lead">{{track.title}}</p>
-                                        <audio controls>
+                                        <audio class="deg" controls >
                                             <source src="{{track.preview}}"> <source>
                                         </audio>
                                     </div>

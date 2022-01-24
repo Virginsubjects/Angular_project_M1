@@ -1,60 +1,66 @@
+<div class="form-group ">
+    <input [(ngModel)]="searchQuery" (keyup)="searchArtist()" type="search" class="form-control input"
+        placeholder="Search an Artist" name="search ">
+</div>
 
-<section class="p-4">
-    <div class="container">
-        <div class="row">
-            <h3 class="display-3">
-                Doozer Music Search
-            </h3>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, numquam id ratione aut similique dolorum. Hic, temporibus! Reprehenderit, nostrum suscipit.</p>
+<div *ngIf="!queryTyped">
+    <h2 class="text-white text-center pt-3 pb-3">Selection pour vous</h2>
+    <div class="box">
+        <div>
+            <img src={{artists2[0][0].album.cover_medium}} class="img">
+            <p>
+                <a routerLink="/artists/{{artists2[0][0].artist.id}}"
+                    class="text-white text-center">{{artists2[0][0].artist.name}}</a>
+            </p>
+        </div>
+
+        <div>
+            <img src={{artists2[1][0].album.cover_medium}} class="img">
+            <p>
+                <a routerLink="/artists/{{artists2[1][0].artist.id}}"
+                    class="text-white text-center">{{artists2[1][0].artist.name}}
+                </a>
+            </p>
+        </div>
+        <div>
+            <img src={{artists2[2][0].album.cover_medium}} class="img">
+            <p>
+                <a routerLink="/artists/{{artists2[2][0].artist.id}} "
+                    class="text-white text-center">{{artists2[2][0].artist.name}}</a>
+            </p>
         </div>
     </div>
-</section>
-
-<section class="">
-    <div class="container">
-        <div class="row">
-            <div class="cold-md-4">
-                <form action="">
-                    <div class="form-group">
-                        <input [(ngModel)]="searchQuery" (keyup)="searchArtist()"type="search" class="form-control" placeholder="Search an Artist" name ="search ">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
+</div>
 <section class="p-3">
     <div class="container">
         <div class="row" *ngFor="let artist of artists, let index = index">
-            <div class="col" >
+            <div class="col">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h2>{{artist.title}}</h2>
+                    <div class="card-header deg text-white">
+                        <h1 class="lead">{{artist.title}}</h1>
                     </div>
-                    <div class="card-body">
-                        <div class="row"> 
+                    <div class="card-body deg">
+                        <div class="row">
                             <div class="cold-md-3">
-                                <img src={{artist.album.cover}} class="img-fluid img-thumbnail">
+                                <img src={{artist.album.cover}} class="img">
                             </div>
                             <div class="cold-md-9">
-                                <h4 class="display-3 text-primary"></h4>
-                                <p class="h5">Artiste : 
-                                    <a  class="badge badge-succes mr-2" routerLink="/artists/{{artist.artist.id}}">{{artist.artist.name}}</a>
-                
-                                    
+                                <h4 class="display-3 "></h4>
+                                <p class="lead text-white">Artiste :
+                                    <a class="badge badge-succes mr-2 text-white"
+                                        routerLink="/artists/{{artist.artist.id}}">{{artist.artist.name}}</a>
                                 </p>
-                                
-                                <p class="h5">Album : 
-                                    
-                                    <span class="badge badge-succes mr-2">{{artist.album.title}}</span>
-                                    
+
+                                <p class="lead text-white">Album :
+
+                                    <span class="badge badge-succes mr-2 text-white">{{artist.album.title}}</span>
+
                                 </p>
-                                <p class="h5">Rank : 
-                                    <span class="badge badge-succes mr-2">{{artist.rank}}</span>
+                                <p class="lead text-white">Rank :
+                                    <span class="badge badge-succes mr-2 text-white">{{artist.rank}}</span>
                                 </p>
-                                
-                        
+
+
                             </div>
                         </div>
                     </div>
@@ -63,5 +69,6 @@
         </div>
     </div>
 </section>
+
 
 <router-outlet></router-outlet>

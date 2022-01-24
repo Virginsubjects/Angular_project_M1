@@ -11,6 +11,7 @@ export class AlbumComponent implements OnInit {
 
   public albumId : any;
   public album :any;
+  public track:any;
 
   constructor(private activatedRoute : ActivatedRoute, private deezerService : DeezerService) { }
 
@@ -24,6 +25,11 @@ export class AlbumComponent implements OnInit {
     this.deezerService.getAlbum(this.albumId).subscribe((data)=>{
       this.album = data;
     })
+  }
+
+  play( track: String){
+    this.track= track;
+    console.log(this.track);
   }
 
 

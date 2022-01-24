@@ -1,11 +1,11 @@
-.f{
-    position: fixed;
-    left: 0;
+.deg{
+  background-color: #232526;
+  position:fixed;
+  left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
     padding-right: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    background-color:rgb(245, 239, 239);
-  }
+    padding-bottom: 5px;
+    padding-top: 5px;
+}

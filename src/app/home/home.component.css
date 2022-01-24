@@ -1,0 +1,26 @@
+.deg{
+    background: #232526;
+}
+.input{
+    background: #232526;
+    margin-left: 80px;
+    width: 1110px;
+    
+}
+.img{
+    border-radius: 5%;
+    margin-right: 20px;
+}
+
+.box{
+    margin-left: 150px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    height: 100px;
+    width: 1100px;
+    font-style: italic;
+    
+}
+
+      
+
